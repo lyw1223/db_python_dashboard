@@ -1,0 +1,163 @@
+/***************************************************** 전체 스타일 *****************************************************/
+.stApp {
+    background-color: #121313;
+    color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    text-align: left;
+    text-decoration: none;
+    text-transform: none;
+    text-overflow: ellipsis;
+}
+
+.header-title {
+    text-align: left;
+    font-size: 50px;
+    font-weight: 700;
+    color: #d3b323;
+}
+
+/***************************************************** 테이블 스타일 *****************************************************/
+.number-cell {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* 서브타이틀 */
+.subtitle {
+    color: #8B5CF6;
+    margin-bottom: 20px;
+}
+
+/* 요약 통계 영역 */
+.summary-stats {
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.summary-stats-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/***************************************************** 요약 통계 카드 *****************************************************/
+.summary-card {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #f8f8f6 0%, #e6e9e4 50%, #d3d6d2 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card-non-std {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #951ce6 0%, #885db3 50%, #ad63ad 100%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.summary-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.summary-label {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #000000a4;
+}
+
+
+.summary-value {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: #f50505;
+    text-align: center;
+}
+
+/* 날짜 입력 영역 */
+.stDateInput > div > div > input {
+    max-width: 200px !important;
+    width: 200px !important;
+    text-align: center !important;
+    color: #0ca4eba4;
+}
+
+.stDateInput {
+    max-width: 200px !important;
+    color: #0ca4eba4;
+}
+
+/* 사이드바 채팅 레이아웃 */
+[data-testid="stSidebar"] {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0 !important;
+    bottom: 0 !important;
+}
+
+[data-testid="stSidebar"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    min-height: 100vh !important;
+}
+
+/* 사이드바 콘텐츠 영역 */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    justify-content: space-between !important;
+}
+
+/* 사이드바 내부 컨테이너 */
+[data-testid="stSidebar"] [data-testid="stVerticalBlock"] > div {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    flex: 1 !important;
+}
+
+/* 채팅 입력창 하단 고정 */
+.chat-input-container {
+    flex-shrink: 0 !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background: var(--background-color) !important;
+    padding: 10px 0 !important;
+    margin-top: auto !important;
+    z-index: 100 !important;
+    width: 100% !important;
+}
+
+/* 채팅 입력창 스타일 - 하단 고정 */
+[data-testid="stChatInput"] {
+    flex-shrink: 0 !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    margin-top: auto !important;
+    width: 100% !important;
+}

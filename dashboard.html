@@ -1,0 +1,79 @@
+<!--
+    Dashboard HTML Templates
+    이 파일은 HTML 템플릿 예시입니다.
+    실제 사용은 dashboard.py에서 동적으로 생성됩니다.
+-->
+
+<!-- 마켓터빌리티 테이블 템플릿 -->
+<template id="marketability-table-template">
+    <h3 class='subtitle'>{{SUBTITLE}}</h3>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th style="text-align: right;">Total Tokens</th>
+                <th style="text-align: right;">API Calls</th>
+                <th style="text-align: right;">Cost ($)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{TABLE_ROWS}}
+        </tbody>
+    </table>
+    <div class="summary-stats">
+        <div class="summary-stats-container">
+            <div class="summary-card">
+                <div class="summary-label">📊 API 사용 토큰 수</div>
+                <div class="summary-value">{{TOTAL_TOKENS}}</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">🔄 모델 컨텐츠 생성 건수</div>
+                <div class="summary-value">{{TOTAL_CALLS}}</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label">💰 API 사용 비용</div>
+                <div class="summary-value">${{TOTAL_COST}}</div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- Model Create 테이블 템플릿 -->
+<template id="model-create-table-template">
+    <h3 class='subtitle'>{{SUBTITLE}}</h3>
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th style="text-align: right;">Total Count</th>
+                <th style="text-align: right;">Standardized</th>
+                <th style="text-align: right;">Non-Standardized</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{TABLE_ROWS}}
+        </tbody>
+    </table>
+    <div class="summary-stats">
+        <div class="summary-stats-container">
+            <div class="summary-card">
+                <div class="summary-label"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" 
+                style="width: 20px; height: 20px; border-radius: 50%;
+                vertical-align: middle; margin-right: 5px;"> 모델 생성 건수</div>
+                <div class="summary-value">{{TOTAL_MODELS}}</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-label"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" 
+                style="width: 20px; height: 20px; border-radius: 50%;
+                vertical-align: middle; margin-right: 5px;"> 정형화 모델</div>
+                <div class="summary-value">{{TOTAL_STANDARDIZED}}</div>
+            </div>
+            <div class="summary-card-non-std">
+                <div class="summary-label"><img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" 
+                style="width: 20px; height: 20px; border-radius: 50%;
+                vertical-align: middle; margin-right: 5px;"> 비정형화 모델</div>
+                <div class="summary-value">{{TOTAL_NON_STANDARDIZED}}</div>
+            </div>
+        </div>
+    </div>
+</template>
