@@ -21,7 +21,15 @@ st.set_page_config(
 # ------------------------------
 @st.cache_data
 def load_data():
-    with mariadb.connect(**json.load(open("JSON/session.json"))['db']) as conn:
+    # Streamlit secrets에서 데이터베이스 연결 정보 가져오기
+    db_config = {
+        "host": st.secrets["db"]["host"],
+        "user": st.secrets["db"]["user"],
+        "password": st.secrets["db"]["password"],
+        "database": st.secrets["db"]["database"],
+        "port": st.secrets["db"]["port"]
+    }
+    with mariadb.connect(**db_config) as conn:
         df_ai_table = pd.read_sql_query("SELECT job_id, token, date FROM `ai_response`", conn)
         df_model_create_table = pd.read_sql_query("SELECT * FROM `model_create`", conn)
         df_photo_upload_table = pd.read_sql_query("SELECT * FROM `photo_upload`", conn)
