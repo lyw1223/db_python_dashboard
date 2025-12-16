@@ -5,7 +5,8 @@ import pytz
 import streamlit as st
 import pandas as pd
 import json
-import mariadb
+# import mariadb
+import mysql.connector
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
@@ -29,15 +30,21 @@ def load_data():
         "database": st.secrets["db"]["database"],
         "port": st.secrets["db"]["port"]
     }
-    with mariadb.connect(**db_config) as conn:
+     # mysql.connector.connect()는 with 구문 지원 안하므로 명시적 close 필요
+    conn = mysql.connector.connect(**db_config)
+    try:        
         df_ai_table = pd.read_sql_query("SELECT job_id, token, date FROM `ai_response`", conn)
         df_model_create_table = pd.read_sql_query("SELECT * FROM `model_create`", conn)
         df_photo_upload_table = pd.read_sql_query("SELECT * FROM `photo_upload`", conn)
+
+        # 날짜 컬럼 datetime 변환
         df_ai_table['date'] = pd.to_datetime(df_ai_table['date']).dt.date
         df_model_create_table['date'] = pd.to_datetime(df_model_create_table['date']).dt.date
         df_photo_upload_table['date'] = pd.to_datetime(df_photo_upload_table['date']).dt.date
+
         return df_ai_table, df_model_create_table, df_photo_upload_table
-    
+    finally:
+        conn.close()        
  
 df_ai_table, df_model_create_table, df_photo_upload_table = load_data()
 df_ai_table_grouped = df_ai_table.groupby('date').agg({'token': ['sum', 'count']}).sort_index()

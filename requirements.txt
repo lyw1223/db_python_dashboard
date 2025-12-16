@@ -1,18 +1,5 @@
-# Streamlit Dashboard 전용 패키지
-# 이 파일은 streamlit_dashboard 폴더에서만 사용하는 패키지 목록입니다.
-
-# 웹 대시보드 프레임워크
 streamlit==1.49.1
-
-# 데이터 처리
 pandas==2.3.0
-
-# 데이터베이스 연결
-mariadb==1.1.14
-
-# 시각화
+mysql-connector-python==8.1.0
 plotly==6.5.0
-
-# 시간대 처리
 pytz==2025.2
-
